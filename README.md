@@ -6,8 +6,8 @@ This repository contains two Python scripts designed to model and analyze the dy
 
 ## Files
 
-- `script1.py`
-- `script2.py`
+- `script1_modelcode.py`
+- `script2_parametervariation.py`
 
 ## Requirements
 
@@ -40,7 +40,7 @@ python script2.py
 
 ## Script Descriptions
 
-### Script 1: Single Parameter Set Analysis
+### Script 1: Model code, default parameter
 
 #### Description
 
