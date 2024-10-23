@@ -23,6 +23,7 @@ muout = 0  # sus entering population from refuge
 muin = 0  # sus leaving population into refuge
 alpha = 0.3  # death in refuge
 m = 1000  # cc of refuge population
+f = 0
 
 # Initial conditions
 N0 = (np.log(10), np.log(10), np.log(10), np.log(1))
@@ -35,12 +36,12 @@ tc = np.linspace(0, 500, 5001)
 #N0=(10000, 0, 100, 0)
 
 # Model
-def model(t,N,r,c,beta,gamma,b,n,k,muin, muout, alpha, m):
+def model(t,N,r,c,beta,gamma,b,n,k,muin, muout, alpha, m,f):
     S=N[0]
     I=N[1]
     P=N[2]
     R=N[3]
-    dS = r*(1-np.exp(S)/k)-c-beta*np.exp(P)-muin+muout*np.exp(R-S)
+    dS = r*(1-np.exp(S)/k)*(np.exp(S) + f * np.exp(I))-c-beta*np.exp(P)-muin+muout*np.exp(R-S)
     dI = beta*np.exp(S+P-I)- c- gamma
     dP = gamma*n*np.exp(I-P) - b
     dR = r*(1-np.exp(R)/m)+muin*np.exp(S-R)-alpha-muout
@@ -59,7 +60,7 @@ def model(t,N,r,c,beta,gamma,b,n,k,muin, muout, alpha, m):
 #tc = np.linspace(0, 1000, 5001)
 
 # Solving and running the model
-sol = solve_ivp(model, [tc[0],tc[-1]], N0, t_eval=tc, args=(r,c,beta,gamma,b,n,k,muin, muout, alpha, m),method='Radau')
+sol = solve_ivp(model, [tc[0],tc[-1]], N0, t_eval=tc, args=(r,c,beta,gamma,b,n,k,muin, muout, alpha, m,f),method='Radau')
 
 # Transform the log-scale solution back to the og scale
 original_scale_solution = np.exp(sol.y)
