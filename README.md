@@ -97,6 +97,7 @@ This script explores the impact of varying the `muin` and `muout` parameters on 
 - `muin_range = np.arange(0, 10.1, 0.1)`: Range of `muin` values.
 - `alpha = 0.3`: Death rate in refuge.
 - `m = 1000`: Carrying capacity of the refuge population.
+- `f = 0`: Fecundity
 
 #### Initial Conditions
 
