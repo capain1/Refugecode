@@ -8,6 +8,7 @@ This repository contains two Python scripts designed to model and analyze the dy
 
 - `script1_modelcode.py`
 - `script2_parametervariation.py`
+- `script3_prevalence.ipynb`
 
 ## Requirements
 
