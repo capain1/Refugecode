@@ -59,6 +59,7 @@ This script simulates the dynamics of the populations with a specific set of par
 - `muin = 1`: Rate at which susceptibles leave the population into refuge.
 - `alpha = 0.3`: Death rate in refuge.
 - `m = 1000`: Carrying capacity of the refuge population.
+- `f = 0`: Fecundity
 
 #### Initial Conditions
 
